@@ -22,16 +22,14 @@
     "prettier": "prettier --check \"src/**.jsx|*.js|*.scss|*.css\"",
     "prettier:fix": "prettier --write \"src/**.jsx|*.js|*.scss|*.css\""
   },
-                "husky": {
-                          "hooks": {
+  "husky": {
+    "hooks": {
       "pre-commit": "lint-staged"
     }
   },
-              "lint-staged": {
-    "*.(js,jsx)": [
- "prettier --write"
-    ],
-    "*.(json,css,md)": [
+  "lint-staged": {
+    "src/**.jsx|*.js|*.scss|*.css": [
+      "eslint --fix",
       "prettier --write"
     ]
   },

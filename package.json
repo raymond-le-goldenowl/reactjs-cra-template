@@ -12,15 +12,14 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-        "pre-commit": "lint-staged",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext js,jsx src/",
     "lint:fix": "eslint --fix --ext js,jsx src/",
-    "prettier": "prettier --check \"src/**.jsx|*.js|*.scss|*.css\"",
-    "prettier:fix": "prettier --write \"src/**.jsx|*.js|*.scss|*.css\""
+    "prettier": "prettier --check \"src/**/(**.jsx|*.js|*.scss|*.css)\"",
+    "prettier:fix": "prettier --write \"src/**/(**.jsx|*.js|*.scss|*.css)\""
   },
   "husky": {
     "hooks": {
@@ -28,9 +27,12 @@
     }
   },
   "lint-staged": {
-    "src/**.jsx|*.js|*.scss|*.css": [
-      "eslint --fix",
-      "prettier --write"
+    "*.+(js|jsx)": [
+      "eslint --fix --ext js,jsx src/",
+      "prettier --write \"src/**.jsx|*.js|*.scss|*.css\""
+    ],
+    "*.+(json|css|md|html|scss)": [
+      "prettier --write \"src/**.jsx|*.js|*.scss|*.css\""
     ]
   },
   "eslintConfig": {

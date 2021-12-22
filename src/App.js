@@ -1,4 +1,5 @@
 import './App.css'
+import UseCallback from './FunctionalComponents/useCallback/UseCallback'
 import { CountContextProvider } from './FunctionalComponents/useContext/CountContext'
 import CounterUseContext from './FunctionalComponents/useContext/Counter'
 import CounterEffect from './FunctionalComponents/useEffect/Counter'
@@ -19,6 +20,8 @@ function App() {
       </CountContextProvider>
 
       <CounterUseMemo />
+
+      <UseCallback />
     </div>
   )
 }

@@ -9,10 +9,9 @@ export default class TodoList extends Component {
           <Todo
             key={todo.id}
             todo={todo}
-            addTodo={this.props.addTodo}
             deleteTodo={this.props.deleteTodo}
-            editTodo={this.props.editTodo}
             todoIsDone={this.props.todoIsDone}
+            setTodoUpdate={this.props.setTodoUpdate}
           />
         ))}
       </div>

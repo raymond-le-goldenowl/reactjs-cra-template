@@ -25,7 +25,8 @@ export default class MainTodo extends Component {
           isDone: false
         }
       ],
-      content: ''
+      content: '',
+      todo_update: {}
     }
 
     // bind methods
@@ -33,6 +34,8 @@ export default class MainTodo extends Component {
     this.deleteTodo = this.deleteTodo.bind(this)
     this.editTodo = this.editTodo.bind(this)
     this.todoIsDone = this.todoIsDone.bind(this)
+    this.setTodoUpdate = this.setTodoUpdate.bind(this)
+    this.setOnInputForUpdateChange = this.setOnInputForUpdateChange.bind(this)
   }
 
   // add new todo
@@ -98,6 +101,26 @@ export default class MainTodo extends Component {
       todo_list: this.state.todo_list
     })
   }
+  setTodoUpdate(id) {
+    const todoUpdate = this.state.todo_list.filter(t => t.id === id)
+    console.log()
+    if (todoUpdate.length > 0) {
+      this.setState({
+        content: this.state.content,
+        todo_list: this.state.todo_list,
+        todo_update: todoUpdate
+      })
+    }
+  }
+
+  setOnInputForUpdateChange(value) {
+    const newUpdateData = [{ ...this.state.todo_update[0], content: value }]
+    this.setState({
+      content: this.state.content,
+      todo_list: this.state.todo_list,
+      todo_update: newUpdateData
+    })
+  }
 
   render() {
     return (
@@ -120,14 +143,17 @@ export default class MainTodo extends Component {
         {
           <TodoList
             todo_list={this.state.todo_list}
-            addTodo={this.addTodo}
             deleteTodo={this.deleteTodo}
-            editTodo={this.editTodo}
             todoIsDone={this.todoIsDone}
+            setTodoUpdate={this.setTodoUpdate}
           />
         }
 
-        <EditTodoModel />
+        <EditTodoModel
+          todo_update={this.state.todo_update}
+          setOnInputForUpdateChange={this.setOnInputForUpdateChange}
+          editTodo={this.editTodo}
+        />
       </div>
     )
   }

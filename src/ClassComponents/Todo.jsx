@@ -25,7 +25,11 @@ export default class Todo extends Component {
           <button onClick={() => this.props.deleteTodo(this.props.todo.id)}>
             Delete
           </button>
-          <button data-bs-toggle="modal" data-bs-target="#EditTodoModel">
+          <button
+            onClick={() => this.props.setTodoUpdate(this.props.todo.id)}
+            data-bs-toggle="modal"
+            data-bs-target="#EditTodoModel"
+          >
             Edit
           </button>
         </h4>

@@ -1,5 +1,5 @@
 import './App.css'
-import MainTodo from './ClassComponents/MainTodo'
+import MainTodo from './ClassComponents/TodoListApp/MainTodo'
 
 function App() {
   return (

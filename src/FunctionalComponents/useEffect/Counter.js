@@ -1,7 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-export default function CounterUseState() {
+export default function CounterEffect() {
   const [count, setCount] = useState(() => 0)
+  const [title, setTitle] = useState(() => 'count = 0')
+
+  useEffect(() => {
+    setTitle(() => 'count = ' + count)
+  }, [count])
 
   return (
     <div style={{ textAlign: 'center', marginTop: 30 }}>
@@ -15,7 +20,7 @@ export default function CounterUseState() {
         style={{ fontSize: '4rem', padding: '3rem' }}
         onClick={() => setCount(prev => prev + 1)}
       >
-        {count}
+        {title}
       </span>
       <button
         style={{ fontSize: '4rem', padding: '3rem' }}

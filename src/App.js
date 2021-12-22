@@ -1,12 +1,13 @@
 import './App.css'
+import CounterEffect from './FunctionalComponents/useEffect/Counter'
+import CounterUseState from './FunctionalComponents/useState/Counter'
 // import MainTodo from './ClassComponents/TodoListApp/MainTodo'
-import Counter from './FunctionalComponents/useState/Counter'
-
 function App() {
   return (
     <div className="App">
       {/* <MainTodo /> */}
-      <Counter />
+      <CounterUseState />
+      <CounterEffect />
     </div>
   )
 }

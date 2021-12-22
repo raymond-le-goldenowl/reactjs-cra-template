@@ -37,7 +37,7 @@ export default class MainTodo extends Component {
   // add new todo
   addTodo(newTodo) {
     this.setState({
-      content: this.state.content,
+      content: '',
       todo_list: [...this.state.todo_list, newTodo]
     })
   }

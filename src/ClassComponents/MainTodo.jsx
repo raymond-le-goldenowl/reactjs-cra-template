@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TodoList from './TodoList'
 import { v4 as uuidv4 } from 'uuid'
+import EditTodoModel from './EditTodoModel'
 
 export default class MainTodo extends Component {
   constructor() {
@@ -125,6 +126,8 @@ export default class MainTodo extends Component {
             todoIsDone={this.todoIsDone}
           />
         }
+
+        <EditTodoModel />
       </div>
     )
   }

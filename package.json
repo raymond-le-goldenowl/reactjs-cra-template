@@ -53,7 +53,7 @@
     }
   },
   "lint-staged": {
-    "**/*.js": [
+    "src/**/*.+(jsx|js|scss|css)": [
       "prettier --write --ignore-unknown"
     ]
   }

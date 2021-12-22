@@ -36,6 +36,7 @@ export default class MainTodo extends Component {
     this.todoIsDone = this.todoIsDone.bind(this)
     this.setTodoUpdate = this.setTodoUpdate.bind(this)
     this.setOnInputChangeForUpdate = this.setOnInputChangeForUpdate.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
   }
 
   // add new todo
@@ -128,25 +129,48 @@ export default class MainTodo extends Component {
       todo_update: newUpdateData
     })
   }
+  // handleKeyPress add new todo
+  handleKeyPress(e) {
+    if (e.code === 'Enter') {
+      const id = uuidv4()
+      const content = this.state.content
+      const isDone = false
+      if (String(content).trim().replace(' ', '').length === 0) {
+        this.setState({
+          content: '',
+          todo_list: this.state.todo_list,
+          todo_update: this.state.todo_update
+        })
+        return
+      } else {
+        this.addTodo({ id, content, isDone })
+      }
+    }
+  }
 
   render() {
     return (
       <div>
         <h1>Todo List</h1>
-        <input
-          onChange={e => this.handleInputChange(e)}
-          value={this.state.content}
-          type="text"
-          name="todo-content"
-          id="todo-content"
-          style={{ fontSize: '2rem' }}
-        />
-        <button
-          style={{ fontSize: '2rem' }}
-          onClick={() => this.handleClickAdd()}
-        >
-          Add
-        </button>
+        <div className="row" id="todo_form">
+          <input
+            className="col-auto form-control"
+            onChange={e => this.handleInputChange(e)}
+            onKeyPress={e => this.handleKeyPress(e)}
+            value={this.state.content}
+            type="text"
+            name="todo-content"
+            id="todo-content"
+            style={{ fontSize: '2rem' }}
+          />
+          <button
+            className="col-auto form-control btn btn-primary"
+            style={{ fontSize: '2rem' }}
+            onClick={() => this.handleClickAdd()}
+          >
+            Add
+          </button>
+        </div>
         {
           <TodoList
             todo_list={this.state.todo_list}

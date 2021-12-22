@@ -48,6 +48,10 @@ export default class EditTodoModel extends Component {
                   onChange={e =>
                     this.props.setOnInputChangeForUpdate(e.target.value)
                   }
+                  className="col-auto form-control"
+                  name="todo-content"
+                  id="todo-content"
+                  style={{ fontSize: '2rem' }}
                 />
               </div>
               <div className="modal-footer">

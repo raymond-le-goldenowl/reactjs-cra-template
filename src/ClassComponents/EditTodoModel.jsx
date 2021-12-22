@@ -46,7 +46,7 @@ export default class EditTodoModel extends Component {
                   type="text"
                   value={content}
                   onChange={e =>
-                    this.props.setOnInputForUpdateChange(e.target.value)
+                    this.props.setOnInputChangeForUpdate(e.target.value)
                   }
                 />
               </div>

@@ -35,7 +35,7 @@ export default class MainTodo extends Component {
     this.editTodo = this.editTodo.bind(this)
     this.todoIsDone = this.todoIsDone.bind(this)
     this.setTodoUpdate = this.setTodoUpdate.bind(this)
-    this.setOnInputForUpdateChange = this.setOnInputForUpdateChange.bind(this)
+    this.setOnInputChangeForUpdate = this.setOnInputChangeForUpdate.bind(this)
   }
 
   // add new todo
@@ -101,6 +101,7 @@ export default class MainTodo extends Component {
       todo_list: this.state.todo_list
     })
   }
+  // get todo to update.
   setTodoUpdate(id) {
     const todoUpdate = this.state.todo_list.filter(t => t.id === id)
     console.log()
@@ -112,8 +113,8 @@ export default class MainTodo extends Component {
       })
     }
   }
-
-  setOnInputForUpdateChange(value) {
+  // get value input on changing to update todo.
+  setOnInputChangeForUpdate(value) {
     const newUpdateData = [{ ...this.state.todo_update[0], content: value }]
     this.setState({
       content: this.state.content,
@@ -151,7 +152,7 @@ export default class MainTodo extends Component {
 
         <EditTodoModel
           todo_update={this.state.todo_update}
-          setOnInputForUpdateChange={this.setOnInputForUpdateChange}
+          setOnInputChangeForUpdate={this.setOnInputChangeForUpdate}
           editTodo={this.editTodo}
         />
       </div>

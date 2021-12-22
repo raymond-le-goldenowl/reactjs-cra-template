@@ -19,8 +19,7 @@
     "lint": "eslint --ext js,jsx \"src/**(*.jsx|*.js)\"",
     "lint:fix": "eslint --fix --ext js,jsx \"src/**(*.jsx|*.js)\"",
     "prettier": "prettier --check \"src/**(**.jsx|*.js|*.scss|*.css)\"",
-    "prettier:fix": "prettier --write \"src/**/*.+(jsx|js|scss|css)\"",
-    "beautiful": "lint-staged"
+    "prettier:fix": "prettier --write \"src/**/*.+(jsx|js|scss|css)\""
   },
   "eslintConfig": {
     "extends": [
@@ -49,13 +48,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "beautiful"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "src/**/*.+(jsx|js|scss|css)": [
-      "prettier --write --ignore-unknown"
-
+      "prettier --write --ignore-unknown",
+      "eslint --fix",
+      "git add -A"
     ]
   }
 }

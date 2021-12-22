@@ -16,12 +16,7 @@ export default function CounterEffect() {
       >
         +
       </button>
-      <span
-        style={{ fontSize: '4rem', padding: '3rem' }}
-        onClick={() => setCount(prev => prev + 1)}
-      >
-        {title}
-      </span>
+      <span style={{ fontSize: '4rem', padding: '3rem' }}>{title}</span>
       <button
         style={{ fontSize: '4rem', padding: '3rem' }}
         onClick={() => setCount(prev => prev - 1)}

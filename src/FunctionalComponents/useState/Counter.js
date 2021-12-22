@@ -11,12 +11,7 @@ export default function CounterUseState() {
       >
         +
       </button>
-      <span
-        style={{ fontSize: '4rem', padding: '3rem' }}
-        onClick={() => setCount(prev => prev + 1)}
-      >
-        {count}
-      </span>
+      <span style={{ fontSize: '4rem', padding: '3rem' }}>{count}</span>
       <button
         style={{ fontSize: '4rem', padding: '3rem' }}
         onClick={() => setCount(prev => prev - 1)}

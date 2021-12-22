@@ -5,8 +5,18 @@ export default class Todo extends Component {
     return (
       <div>
         <h4 style={{ fontSize: '1.6rem' }}>
-          {this.props.todo.content}
+          {this.props.todo.isDone ? (
+            <span style={{ textDecoration: 'line-through' }}>
+              {this.props.todo.content}
+            </span>
+          ) : (
+            <span style={{ textDecoration: 'none' }}>
+              {this.props.todo.content}
+            </span>
+          )}
+
           <input
+            onClick={() => this.props.todoIsDone(this.props.todo.id)}
             type="checkbox"
             name="is-done"
             id="is-done"

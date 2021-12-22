@@ -45,7 +45,7 @@ export default class MainTodo extends Component {
   todoIsDone(id) {
     const newTodo = this.state.todo_list.map(t => {
       if (t.id === id) {
-        t.isDone = true
+        t.isDone = !t.isDone
       }
       return t
     })

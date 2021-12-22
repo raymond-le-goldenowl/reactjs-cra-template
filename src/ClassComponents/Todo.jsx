@@ -5,7 +5,7 @@ export default class Todo extends Component {
     return (
       <div>
         <h4 style={{ fontSize: '1.6rem' }}>
-          {this.props.todo}
+          {this.props.todo.content}
           <button>Delete</button>
           <button>Edit</button>
         </h4>

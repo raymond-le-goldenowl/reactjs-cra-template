@@ -4,7 +4,13 @@ import TodoList from './TodoList'
 export default class MainTodo extends Component {
   constructor() {
     super()
-    this.state = { todo_list: [1, 2, 3, 4] }
+    this.state = {
+      todo_list: [
+        { id: 1, content: 'sleep', isDone: false },
+        { id: 2, content: 'eat', isDone: false },
+        { id: 3, content: 'code', isDone: false }
+      ]
+    }
   }
 
   render() {

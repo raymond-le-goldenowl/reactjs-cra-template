@@ -10,7 +10,7 @@ export default class TodoList extends Component {
     return (
       <div>
         {this.state.todo_list.map((todo, index) => (
-          <Todo key={index} todo={todo} />
+          <Todo key={todo.id} todo={todo} />
         ))}
       </div>
     )

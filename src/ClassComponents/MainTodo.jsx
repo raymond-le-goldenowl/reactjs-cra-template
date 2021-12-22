@@ -17,7 +17,12 @@ export default class MainTodo extends Component {
     return (
       <div>
         <h1>Todo List</h1>
-        <input type="text" name="todo-content" id="todo-content" style={{ fontSize: '2rem' }} />
+        <input
+          type="text"
+          name="todo-content"
+          id="todo-content"
+          style={{ fontSize: '2rem' }}
+        />
         <button style={{ fontSize: '2rem' }}>Add</button>
         {<TodoList todo_list={this.state.todo_list} />}
       </div>

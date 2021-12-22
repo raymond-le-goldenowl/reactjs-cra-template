@@ -2,6 +2,7 @@ import './App.css'
 import { CountContextProvider } from './FunctionalComponents/useContext/CountContext'
 import CounterUseContext from './FunctionalComponents/useContext/Counter'
 import CounterEffect from './FunctionalComponents/useEffect/Counter'
+import CounterUseMemo from './FunctionalComponents/useMemo/Counter'
 import CounterUseReducer from './FunctionalComponents/useReducer/Counter'
 import CounterUseState from './FunctionalComponents/useState/Counter'
 // import MainTodo from './ClassComponents/TodoListApp/MainTodo'
@@ -16,6 +17,8 @@ function App() {
       <CountContextProvider>
         <CounterUseContext />
       </CountContextProvider>
+
+      <CounterUseMemo />
     </div>
   )
 }

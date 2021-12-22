@@ -11,6 +11,47 @@ export default class MainTodo extends Component {
         { id: 3, content: 'code', isDone: false }
       ]
     }
+    this.addTodo = this.addTodo.bind(this)
+    this.deleteTodo = this.deleteTodo.bind(this)
+    this.editTodo = this.editTodo.bind(this)
+    this.todoIsDone = this.todoIsDone.bind(this)
+  }
+
+  addTodo(newTodo) {
+    this.setState({
+      todo_list: [...this.state.todo_list, newTodo]
+    })
+  }
+
+  deleteTodo(id) {
+    const newTodo = this.state.todo_list.filter(t => t.id !== id)
+    this.setState({
+      todo_list: newTodo
+    })
+  }
+
+  editTodo(updateTodo) {
+    const newTodo = this.state.todo_list.map(t => {
+      if (t.id === updateTodo.id) {
+        return updateTodo
+      }
+      return t
+    })
+    this.setState({
+      todo_list: newTodo
+    })
+  }
+
+  todoIsDone(id) {
+    const newTodo = this.state.todo_list.map(t => {
+      if (t.id === id) {
+        t.isDone = true
+      }
+      return t
+    })
+    this.setState({
+      todo_list: newTodo
+    })
   }
 
   render() {
@@ -24,7 +65,15 @@ export default class MainTodo extends Component {
           style={{ fontSize: '2rem' }}
         />
         <button style={{ fontSize: '2rem' }}>Add</button>
-        {<TodoList todo_list={this.state.todo_list} />}
+        {
+          <TodoList
+            todo_list={this.state.todo_list}
+            addTodo={this.addTodo}
+            deleteTodo={this.deleteTodo}
+            editTodo={this.editTodo}
+            todoIsDone={this.todoIsDone}
+          />
+        }
       </div>
     )
   }

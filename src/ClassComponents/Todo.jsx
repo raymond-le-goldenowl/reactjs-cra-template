@@ -12,7 +12,9 @@ export default class Todo extends Component {
             id="is-done"
             style={{ cursor: 'pointer' }}
           />
-          <button>Delete</button>
+          <button onClick={() => this.props.deleteTodo(this.props.todo.id)}>
+            Delete
+          </button>
           <button>Edit</button>
         </h4>
       </div>

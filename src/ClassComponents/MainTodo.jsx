@@ -42,7 +42,8 @@ export default class MainTodo extends Component {
   addTodo(newTodo) {
     this.setState({
       content: '',
-      todo_list: [...this.state.todo_list, newTodo]
+      todo_list: [...this.state.todo_list, newTodo],
+      todo_update: this.state.todo_update
     })
   }
   // delete a todo
@@ -50,7 +51,8 @@ export default class MainTodo extends Component {
     const newTodo = this.state.todo_list.filter(t => t.id !== id)
     this.setState({
       content: this.state.content,
-      todo_list: newTodo
+      todo_list: newTodo,
+      todo_update: this.state.todo_update
     })
   }
   // edit a todo
@@ -63,7 +65,8 @@ export default class MainTodo extends Component {
     })
     this.setState({
       content: this.state.content,
-      todo_list: newTodo
+      todo_list: newTodo,
+      todo_update: this.state.todo_update
     })
   }
   // change todo is available
@@ -75,8 +78,9 @@ export default class MainTodo extends Component {
       return t
     })
     this.setState({
-      content: this.content,
-      todo_list: newTodo
+      content: this.state.content,
+      todo_list: newTodo,
+      todo_update: this.state.todo_update
     })
   }
   // click add button to add new todo.
@@ -87,7 +91,8 @@ export default class MainTodo extends Component {
     if (String(content).trim().replace(' ', '').length === 0) {
       this.setState({
         content: '',
-        todo_list: this.state.todo_list
+        todo_list: this.state.todo_list,
+        todo_update: this.state.todo_update
       })
       return
     } else {
@@ -98,7 +103,8 @@ export default class MainTodo extends Component {
   handleInputChange(e) {
     this.setState({
       content: e.target.value,
-      todo_list: this.state.todo_list
+      todo_list: this.state.todo_list,
+      todo_update: this.state.todo_update
     })
   }
   // get todo to update.

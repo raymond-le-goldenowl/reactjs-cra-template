@@ -1,5 +1,6 @@
 import './App.css'
-import DOMMovementWithEvents from './ClassComponents/DOMMovementWithEvents/DOMMovementWithEvents'
+import FetchAndDisplayFromAnAPI from './ClassComponents/FetchAndDisplayFromAnAPI/FetchAndDisplayFromAnAPI'
+// import DOMMovementWithEvents from './ClassComponents/DOMMovementWithEvents/DOMMovementWithEvents'
 // import RenderListUsers from './ClassComponents/LoopAndDisplayData/RenderListUsers'
 // import UpdateDataFromAnInput from './ClassComponents/UpdateDataFromAnInput/UpdateDataFromAnInput'
 // import MainTodo from './ClassComponents/TodoListApp/MainTodo'
@@ -12,7 +13,9 @@ function App() {
 
       {/* <UpdateDataFromAnInput /> */}
 
-      <DOMMovementWithEvents />
+      {/* <DOMMovementWithEvents /> */}
+
+      <FetchAndDisplayFromAnAPI />
     </div>
   )
 }

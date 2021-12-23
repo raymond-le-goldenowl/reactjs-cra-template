@@ -1,5 +1,6 @@
 import './App.css'
-import FetchAndDisplayFromAnAPI from './ClassComponents/FetchAndDisplayFromAnAPI/FetchAndDisplayFromAnAPI'
+import MainStatCard from './ClassComponents/StatCart/StatCard'
+// import FetchAndDisplayFromAnAPI from './ClassComponents/FetchAndDisplayFromAnAPI/FetchAndDisplayFromAnAPI'
 // import DOMMovementWithEvents from './ClassComponents/DOMMovementWithEvents/DOMMovementWithEvents'
 // import RenderListUsers from './ClassComponents/LoopAndDisplayData/RenderListUsers'
 // import UpdateDataFromAnInput from './ClassComponents/UpdateDataFromAnInput/UpdateDataFromAnInput'
@@ -15,7 +16,9 @@ function App() {
 
       {/* <DOMMovementWithEvents /> */}
 
-      <FetchAndDisplayFromAnAPI />
+      {/* <FetchAndDisplayFromAnAPI /> */}
+
+      <MainStatCard />
     </div>
   )
 }

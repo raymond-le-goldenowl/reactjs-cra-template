@@ -16,9 +16,7 @@ class StatCard extends React.PureComponent {
           <span>{this.props?.label}</span>
         </div>
         <div style={{ fontSize: '2.2rem', color: '#444', fontWeight: 'bold' }}>
-          {new Intl.NumberFormat('en-IN', {
-            maximumFractionDigits: 3
-          }).format(this.props?.number)}
+          {this.props?.number.toLocaleString()}
         </div>
       </div>
     )

@@ -32,6 +32,7 @@ export default function Books() {
       setCountOfBooksSearached(result.length)
     } else {
       setCountOfBooksSearached(0)
+      setBooksFilter(books)
     }
   }, [books, keywords])
 

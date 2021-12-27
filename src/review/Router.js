@@ -13,11 +13,13 @@ const DefaultRouteComponent = () => <Navigate to={_routes.home.path} />
 export const _routes = {
   home: {
     path: '/',
+    title: 'Home',
     exact: true,
     component: Home
   },
   about: {
     path: '/about',
+    title: 'About',
     exact: true,
     component: About
   },

@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import NavLinks from '../NavLinks'
 import FormSearch from './FormSearch'
 import RenderBooks from './RenderBooks'
 
@@ -37,10 +38,13 @@ export default function Books() {
   }, [books, keywords])
 
   return (
-    <div className="row">
-      <p>Number of books searched: {countOfBooksSearached}</p>
-      <FormSearch keywords={keywords} setKeywords={setKeywords} />
-      <RenderBooks booksFilter={booksFilter} />
-    </div>
+    <>
+      <NavLinks />
+      <div className="row">
+        <p>Number of books searched: {countOfBooksSearached}</p>
+        <FormSearch keywords={keywords} setKeywords={setKeywords} />
+        <RenderBooks booksFilter={booksFilter} />
+      </div>
+    </>
   )
 }

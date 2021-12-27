@@ -2,6 +2,7 @@ import React, { lazy } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
 import { createBrowserHistory } from 'history'
+import Books from './Books'
 
 const Home = lazy(() => import('./Home'))
 const About = lazy(() => import('./About'))
@@ -16,6 +17,12 @@ export const _routes = {
     title: 'Home',
     exact: true,
     component: Home
+  },
+  books: {
+    path: '/books',
+    title: 'Books',
+    exact: true,
+    component: Books
   },
   about: {
     path: '/about',

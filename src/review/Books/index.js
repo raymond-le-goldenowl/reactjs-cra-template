@@ -1,9 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import FormSearch from './FormSearch'
+import RenderBooks from './RenderBooks'
 
 export default function Books() {
   const [books, setBooks] = useState([])
   const [keywords, setKeywords] = useState('')
   const [booksFilter, setBooksFilter] = useState([])
+  const [countOfBooksSearached, setCountOfBooksSearached] = useState(0)
 
   const fetchBooks = useCallback(async () => {
     const url = `https://www.anapioficeandfire.com/api/books?pageSize=30`
@@ -20,45 +23,23 @@ export default function Books() {
   }, [fetchBooks])
 
   useEffect(() => {
-    const result = books.filter(book =>
-      book.name.toLowerCase().includes(keywords)
-    )
-    setBooksFilter(result)
+    console.log(keywords)
+    if (keywords.trim()?.length !== 0) {
+      const result = books.filter(book =>
+        book.name.toLowerCase().includes(keywords)
+      )
+      setBooksFilter(result)
+      setCountOfBooksSearached(result.length)
+    } else {
+      setCountOfBooksSearached(0)
+    }
   }, [books, keywords])
 
   return (
     <div className="row">
-      <div className="mb-3 d-flex align-items-center">
-        <label
-          htmlFor="keywords"
-          className="form-label"
-          style={{ fontSize: '1.5rem' }}
-        >
-          Keywords:{' '}
-        </label>
-        <input
-          onChange={({ target }) => setKeywords(target.value)}
-          value={keywords}
-          type="text"
-          className="form-control"
-          id="keywords"
-        />
-      </div>
-      {Object.values(booksFilter).map((book, index) => {
-        return (
-          <div key={index} className="col-xl-4 col-lg-3 col-md-4 mt-2">
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">{book?.name}</h5>
-                <p className="card-text">{book?.authors?.join(', ')}</p>
-                <p className="card-text">
-                  {new Date(book.released).toDateString()}
-                </p>
-              </div>
-            </div>
-          </div>
-        )
-      })}
+      <p>Number of books searched: {countOfBooksSearached}</p>
+      <FormSearch keywords={keywords} setKeywords={setKeywords} />
+      <RenderBooks booksFilter={booksFilter} />
     </div>
   )
 }
